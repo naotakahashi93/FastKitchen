@@ -23,7 +23,7 @@ class User(db.Model):
 
     id = db.Column(
         db.Integer,
-        primary_key=True,
+        primary_key=True, 
     )
 
     email = db.Column(
@@ -109,7 +109,7 @@ class FaveIngredient(db.Model):
 
     user_id = db.Column(
         db.Integer, 
-        db.ForeignKey("users.id", ondelete="cascade"), 
+        db.ForeignKey("users.id", ondelete='CASCADE'), 
         nullable=False) ## foreign key from id in the users table
 
     ingredient = db.Column(
