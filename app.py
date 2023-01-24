@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, flash, redirect, session, g
 import requests, os
 from sqlalchemy.exc import IntegrityError
-from secrets_1 import API_SECRET_KEY
+
 from forms import  MainForm, UserSignUpForm, LoginForm, FaveIngForm
 from bs4 import BeautifulSoup ## not using this
 from models import User, db, connect_db, bcrypt , FaveIngredient
@@ -11,7 +11,7 @@ import csv
 API_BASE_URL = "https://api.spoonacular.com/recipes"
 LOCAL_BASE_URL="http://127.0.0.1:5000"
 
-key = API_SECRET_KEY
+key = "69f498b1c49c4a9eb755213760a3397e"
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
