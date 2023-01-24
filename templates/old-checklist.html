@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title%} Ingredient Checklist {% endblock %}
+{% block content %}
+
+
+
+  <div id="category-section">
+
+    CATEGORY SECTION
+  </div>
+
+{% endblock %}
+
+<!-- <div>
+  <h1> INGREDIENTS </h1>
+</div>
+
+
+  LIST OF INGREDIENTS: 
+</br>
+  {% for field in form.ingredients
+    if field.widget.input_type != 'hidden' %}
+
+    
+    <input type="checkbox" id="{{field.label.text}}" name="{{field.label.text}}">
+    <label for="{{field.label.text}}">{{ field.label.text }}</label>
+  </br>
+    
+    {% for error in field.errors %}
+    <span class="form-text text-danger">{{ error }}</span>
+    {% endfor %}
+  {% endfor %} -->

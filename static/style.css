@@ -1,0 +1,489 @@
+body, html{
+    height: 100%;
+    width: 100%;
+}
+* {
+    font-size: 100%;
+    font-family: Arial Rounded MT Bold;
+   }
+
+
+#all-container-main{
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    float: none;
+}
+#checkedoff-ings-section{
+    background-color: rgba(238, 238, 238, 0.907);
+    width: 40%;
+    height: 100%;
+    bottom: 0%;
+    position: absolute;
+    display: inline-block; 
+}
+
+
+#checkedoff-ings-text-wrap{
+    margin-top: 12%;
+}
+
+#checkedoff-ings{
+    width: 100%;
+    position: relative;
+    color:black;
+
+}
+
+#onee,
+#ingredient-selection-section,
+#category-section{
+    background-color: white;
+    width: 100%;
+    position: relative;
+    float:left; 
+    bottom: 0;
+}
+
+#ingredient-search-section{
+
+    background-color: white;
+    position: relative;
+    float:left; 
+}
+
+.navbar{
+    list-style-type: none;
+    margin: 0;
+    margin-left: auto;
+    background-color: #97DBAE;
+    padding: 1.5%;
+    display:inline-block;
+    width: 100%;
+}
+
+.nav-item{
+display:inline;
+}
+
+#circle-logo{
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    vertical-align:middle;
+}
+/* ---Sign-Up/LOGIN styles---*/
+#reg-contents-wrapper,
+#login-contents-wrapper
+{
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:  #97dbae6e;
+    border-radius: 12px;
+    margin-top: 1%;
+}
+
+.join-message,
+.login-message,
+#user_form,
+#user_form label,
+input#username,
+input#email,
+input#password,
+#select-prof-img
+{
+    width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#select-prof-img-options{
+    display: inline-block;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#user-img-reg{
+    margin-top: 10px;
+    text-align: center;
+    width: 90px; 
+    height: 90px;
+}
+#user-img-reg-wrapper{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50%;
+    width: 90px; 
+    height: 90px;
+    display: inline-block;
+    text-align: center;
+}
+
+#user-img-reg-selection-wrapper{
+    width: 100px; 
+    height: 120px;
+    display: inline-block;
+    text-align: center;
+}
+
+#sign-me-up-btn,
+#login-page-login-btn{
+    border-radius: 12px;    
+    border: solid;
+    border-width: 0.4px;
+    margin-bottom: 1%;
+    background-color: #ffdc5c;
+    display: inline-block;
+}
+
+/* --- END of Sign-Up/Registration styles---*/
+
+
+
+#logo{
+    text-align:center;
+    vertical-align:middle;
+    font-size: 30px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    color: black;
+}
+
+#remove-ing{
+    
+    vertical-align:middle;
+}
+/* 
+#user-faves{
+    /* background-color: #97dbaed6;
+    width: 80%;
+    position: relative;
+    color:black;
+    clear: both;
+    border-style: double;
+    border-width: 3px;
+    margin: 5px;
+    float:left, bottom, middle; 
+     */
+     
+
+/* RECIPE RESULTS STYLING*/
+
+#recipe-result-wrapper{
+    width: 100%;
+    position: relative;
+    bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#each-recipe{
+    border-style: solid;
+    border-width: 3px;
+    border-color: #97dbae;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    margin-top: 1%;
+    display: block;
+    position: relative;
+    font-size: 1.5vw;
+}
+
+#recipe-img-wrapper{
+    display: inline-block;
+    width: 40%;
+}
+
+#each-recipe img{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+#recipe-title{
+    display: inline;
+    width: 58%;
+    position: absolute;
+    float: right;
+    margin-left: 2%;
+}
+
+#each-recipe a{
+    position: relative;
+    font-size: 2.2vw;
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+#recipe-using-ings{
+    width: 50%;
+    display: inline-block;
+}
+
+#recipe-what-to-get{
+    width: 48%;
+    float: right;
+    margin-right: 2%;
+    background-color:#97dbae9d
+}
+
+/* RECIPE RESULTS STYLING END*/
+
+
+#searchresult{
+    background: #ffdc5c;
+    position: absolute;
+    z-index: 10;
+    width: 35%; 
+    float:right;
+}
+#searchterm{
+    width: 300px;
+    border-radius: 12px;    
+    border: none;
+    background-color: rgba(238, 238, 238, 0.907);
+}
+button#search-ings{
+    padding-top: 6px;
+    background-color: transparent;
+    border: none;
+}
+#exit-search-result{
+    top: 20px;
+    right: 20px;
+    float:right;
+    background-color: transparent;
+    border: none;
+}
+
+button#faveiconbtn{
+    background-color: transparent;
+    border: none;
+    color: #3e2214;
+}
+
+.category-btn,
+#user-fave-buttonnn{
+    height:100px;
+    width:95px;
+    border: none;
+    border-radius: 12px;
+    background-color: #97dbae6e;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5.2px;
+}
+
+button#getrecipes{
+    border-radius: 12px;    
+    background-color: #ffdc5c;
+    border: solid;
+    border-width: 0.4px;
+    display: inline-block;
+}
+
+/* HOME PAGE STYLING */
+#home-signup-btn,
+#home-login-btn,
+#ing-checklist-btn{
+    border-radius: 12px;    
+    background-color: white;
+    border: solid;
+    border-width: 0.4px;
+    margin-bottom: 1%;
+    background-color: #ffdc5c;
+}
+
+
+#home-left-div{
+    float: left;
+    position: relative;
+    display: inline;
+    width: 50%;
+    height: 100%;
+}
+
+#heading-div{
+    margin-top: 4%;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#home-heading{
+    font-size: 3.6vw;
+    margin-left:30% ;
+    margin-right: 0px;
+    margin-top: 11%;
+    position: relative;
+    display: flex;
+    width: 80%;
+
+}
+#home-img{
+    margin-top: 3%;
+    max-width:36%;
+    height:auto;
+    float: right;
+    margin-right: 12%;
+}
+
+#home-action{
+    margin-left: 30% ;
+    margin-top: 4%;
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    width: 60%;
+}
+
+#signup-login-action{
+    width: 50%;
+    display: inline-block;
+}
+
+#home-signup-btn,
+#home-login-btn,
+#ing-checklist-btn{
+    
+    width: 85%;
+    height: 95%;
+    font-size: 2vw;
+}
+
+#or-divider{
+    font-size: 2.1vw;
+    margin-top: 8%;
+    display:inline-block;
+    margin-right: 0px;
+    position: absolute;
+}
+
+#cont-as-guest{
+    display:inline-block;
+    width: 50%;
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 16%;
+
+}
+
+#home-how-it-works{
+    margin-top: 39%;
+    height: 300%;
+    background: #97dbae6e;
+}
+
+#how-works-contents-wrapper{
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    
+}
+#how-it-works-title{
+    position: absolute;
+    margin-top: 5%;
+    font-size: 3vw;
+}
+#step1-wrapper{
+    max-width: 60%;
+    height: auto;
+    float: left;
+    position: absolute;
+    display: block;
+    margin-top: 10%;
+}
+#img-step1{
+    max-width: 100%;
+    height: auto;
+    float: left;
+    position: relative;
+    box-shadow: 6px 6px 10px rgb(42, 42, 42);
+}
+#step1{
+    float: right;
+    width: 38%;
+    margin-top: 15%;
+    font-size: 2.2vw;
+}
+#step2-wrapper{
+    margin-top: 50%;
+    position: absolute;
+}
+#step2-wrapper p{
+    width: 38%;
+    float: left;
+    font-size: 2.2vw;
+    margin-top: 10%;
+    position: absolute;
+    text-align: right;
+}
+
+#step2,
+#step4{
+    width: 60%;
+    float: right;
+}
+
+#img-step2{
+    width: 100%;
+    box-shadow: 6px 6px 10px rgb(42, 42, 42);
+}
+
+#step3-wrapper{
+    margin-top: 90%;
+    position: absolute;
+}
+
+#img-result{
+    max-width: 60%;
+    height: auto;
+    float: left;
+    position: relative;
+    box-shadow: 6px 6px 10px rgb(42, 42, 42);
+}
+#step3{
+    float: right;
+    width: 38%;
+    margin-top: 12%;
+    font-size: 2.2vw;
+}
+
+#step4-wrapper{
+    margin-top: 127%;
+    position: absolute;
+    background-color: rgba(222, 221, 221, 0.839);
+    padding: 1.5%
+}
+
+#step4-wrapper p{
+    width: 38%;
+    float: left;
+    font-size: 1.78vw;
+    margin-top: 2%;
+    position: absolute;
+    text-align: center;
+    margin-left: 2%;
+}
+#img-step4{
+    width: 80%;
+    margin-left: 10%;
+    border-style: solid;
+    border-color: #ffdc5c;
+}
+
+
+/* HOME PAGE STYLING END */
+

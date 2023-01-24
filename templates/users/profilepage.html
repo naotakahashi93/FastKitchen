@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title%} Ingredient Checklist {% endblock %}
+{% block body%}
+<body onload='appendFavetoUserPage()'>
+    {% endblock %}
+
+{% block content %}
+
+User ID: {{user.id}} </br>
+Username: {{user.username}}</br>
+User Email:{{user.email}}</br>
+<form action="/users/{{user.id}}/addfave" method="POST">
+<ul id="favorite-ings">
+
+ 
+    
+</ul>
+<input type="hidden"  id="user-fave-ings" name="user-fave-ings">
+</form>
+
+
+{% endblock %}

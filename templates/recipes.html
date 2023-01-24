@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title%} Ingredient Checklist {% endblock %}
+{% block body%}
+<body>
+    {% endblock %}
+
+{% block content %}
+
+{% if result[0]["missedIngredientCount"] > 0 %}
+    </br>
+    <p  class="alert alert-secondary"> There are no recipes you can make with just the ingredients you have but here are some you can make by getting more ingredients! </p>
+{% endif %}
+
+    <div id="recipe-result-wrapper">
+        {% for each in result%}
+            <div id="each-recipe">
+                <div id="recipe-img-wrapper">
+                    <img src='{{each["image"]}}' alt='{{each["title"]}}' width="100">
+                </div>
+                <div id="recipe-title">
+                    <a href="/recipeinstruction/{{each.id}}">{{each["title"]}}</a>
+                    <div id="recipe-using-ings">
+                        <p>
+                        Using:
+                        {%for eachused in each["usedIngredients"] %}
+                            <ul>    
+                                <li>{{eachused["name"]}}
+                            </ul>        
+                        {% endfor %}
+                        </p>
+                    </div>
+                    {% if each["missedIngredientCount"] > 0 %}
+                        <div id="recipe-what-to-get">
+                            <p>
+                            What you'll need to get:
+                                {%for eachmissed in each["missedIngredients"]%}
+                                    <ul>    
+                                        <li>{{eachmissed["name"]}}
+                                    </ul>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

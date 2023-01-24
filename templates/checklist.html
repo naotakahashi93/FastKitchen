@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block title%} Ingredient Checklist {% endblock %}
+{% block body%}
+<body onload=''>
+    {% endblock %}
+
+{% block content %}
+<div id="all-container-main">
+    <div id="search-container" style ="height: 100%;width:60%;float:left;margin-left:3%">
+        <div id="ingredient-search-section" style ="width: 100%; float: left">
+            {% for category, message in get_flashed_messages(with_categories=True) %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            <!-- <h4> search your ingredient:</h4> -->
+            
+            <div id="search-wrapper" style ="float:right">
+                <input type="text" name="searchterm" id="searchterm" placeholder="search ingredient by name">
+                <button id="search-ings" class="fa-solid fa-magnifying-glass" style ="float:right"></button>
+            
+                <div id="searchresult">
+                <!-- <i class="fa-solid fa-hand-pointer fa-2x"></i> Can't find your ingredient? search here! -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="ingredient-selection-section" style ="width: 100%; float: left" >
+            <div class="find-ing-title">
+                <h4> Find your ingredient by category:</h4>
+            </div>
+
+            <button class="category-btn" id="common"><i class="fa-solid fa-spoon fa-2x"></i> Common Condiments</button>
+            <button class="category-btn" id="cheese"> <i class="fa-solid fa-cheese fa-2x"></i></br>Cheese </button>
+            <button class="category-btn" id="dairy"> <i class="fa-solid fa-cow fa-2x"></i></br>Dairy </button>
+            <button class="category-btn" id="herbs"> <i class="fa-brands fa-pagelines fa-2x"></i></br>Dried Herbs </button>
+            <button class="category-btn" id="flour"><i class="fa-solid fa-wheat-awn fa-2x"></i> </br>Flour </button>
+            <button class="category-btn" id="freshherbs"> <i class="fa-solid fa-leaf fa-2x"></i></br>Fresh Herbs </button>
+            <button class="category-btn" id="fruitsnuts"> <i class="fa-solid fa-apple-whole fa-2x"></i></br>Fruits & Nuts </button>
+            <button class="category-btn" id="meatfish"> <i class="fa-solid fa-bacon fa-2x"></i></br>Meat/ Fish/ Protein </button>
+            <button class="category-btn" id="oils"><i class="fa-solid fa-wine-bottle fa-2x"></i></br>Oils/ Vinegar/ Alcohol </button>
+            <button class="category-btn" id="sauces"><i class="fa-solid fa-bottle-droplet fa-2x"></i> </br>Sauces/ Canned Condiments</button>
+            <button class="category-btn" id="sweet"> <i class="fa-solid fa-cubes-stacked fa-2x"></i></br>Sweet Condiments/ Baking </button>
+            <button class="category-btn" id="vegtables"> <i class="fa-solid fa-carrot fa-2x"></i></br>Vegtables </button>
+            {% if g.user %} 
+            <button id="user-fave-buttonnn"> <i class="fa-solid fa-bookmark fa-2x"></i></br>Your Favorited Ingredients </button>
+            {% endif %}
+
+            <h3 id="category-title"></h3>
+
+            <div id="category-section" style=" background-color: white">
+                <i class="fa-solid fa-hand-pointer fa-2x"></i> click through the categories above and start adding the ingredients you have in your fridge/pantry!
+                
+                <!-- {% if g.user %}        
+                    <div id="user-faves">
+                        <div id="user-fave-ul-wrapper">
+                            {% for ing in user_faves%}
+                            <ul id="{{ing.display}}" class="choice">
+                            <input type="checkbox" id="{{ing.display}}" name="ingredients" value="{{ing.display}}">
+                            <label for="{{ing.display}}"}>{{ing.display}}</label>
+                            </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %} -->
+            </div>
+            <div id="user-fave-use-only" style="display: none;">
+            </div>
+        </div>
+    </div>
+
+
+        <div id="checkedoff-ings-section">
+            <div id="checkedoff-ings-text-wrap">
+                <form action="/recipehtml">
+                <div id="your-ingredients-header">
+                    <h6>Your ingredients:</h6>
+                </div>
+                
+                <ul id="checkedoff-ings">
+                </ul> 
+                    
+                <input type="hidden" name="checkedoff" id="checkedoff-arr">
+                
+                </form>
+                {% if g.user %}        
+                    <div id="user-faves" style="display: none;">
+                        <h5>{{g.user.username}}'s favorite ingredients</h5>
+                        <div id="user-fave-ul-wrapper">
+                            {% for ing in user_faves%}
+                            <ul id="{{ing.display}}" class="choice">
+                            <input type="checkbox" id="{{ing.display}}" name="ingredients" value="{{ing.display}}">
+                            <label for="{{ing.display}}"}>{{ing.display}}</label>
+                            </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+</div>
+
+
+{% endblock %}
+
+
+    <!-- <p>You have <span id="number-of-ings"> 0 </span> ingredients</p> -->

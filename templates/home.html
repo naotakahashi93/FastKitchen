@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title%} HOME  {% endblock %}
+{% block content %}
+
+
+
+
+{% if not session['current_user'] %}
+
+    <div id="home-left-div">
+        <div id="heading-div">
+            <h1 id="home-heading"> Quick and easy recipes using ingredients you have in your kitchen! </h1>
+            <div id="home-action">
+                <div id="signup-login-action">
+                    <form action="/signup">
+                        <button id="home-signup-btn"> Sign Up/ Register </button>
+                    </form>
+
+                    <form action="/login">
+                        <button id="home-login-btn"> Login </button>
+                    </form>
+                </div>
+                <div id="or-divider"> OR </div>
+                <div id="cont-as-guest">
+                    <form action="/ingredients">
+                        <button id="ing-checklist-btn">Continue As Guest</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img id="home-img" src="/static/images/HomePagePhoto.png"> 
+
+    <div id="home-how-it-works">
+        <div id="how-works-contents-wrapper">
+            <h3 id="how-it-works-title">How it works in 2 easy steps:
+            </h3>
+            <div id="step1-wrapper">
+                <img src="/static/images/Step1.png" id="img-step1">
+            </div>
+            <div id="step1">
+                <p> Step 1: </br>
+                    Select the ingredients you have. 
+                </br>
+                    You can find it from the given categories or search. 
+                </p>
+            </div>
+            <div id="step2-wrapper">
+                <p> Step 2: </br>
+                    Once you have selected all your ingredients, click on the "Get Recipes!" button. 
+    
+                </p> 
+                <div id="step2">
+                    <img src="/static/images/Step2.png" id="img-step2">
+                </div>
+            </div>
+           
+            <div id="step3-wrapper">
+                <img src="/static/images/Results.png" id="img-result">
+                <div id="step3">
+                    <p>  Start cooking!
+                    </p>
+                </div>
+            </div>
+
+            <div id="step4-wrapper">
+                <p> Have ingredients that are a staple for your kitchen? </br>
+                    Sign up for an account to access "Your Favorites!" - 
+                    Favorite and save any ingredient you want to quickly add it to your ingredients list and get cooking faster. 
+                </p> 
+                <div id="step4">
+                    <img src="/static/images/Faves.png" id="img-step4">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+{% endif %}
+
+
+{% endblock %}

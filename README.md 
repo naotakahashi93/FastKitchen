@@ -1,0 +1,15 @@
+Title: FastKitchen 
+
+FastKitchen is a website targeted for busy individuals and aims to make homemade cooking easy, straightforward and hassle free. 
+This app is ideal for anyone who has a busy daily life and struggles with recipe ideas using the ingredients they have on hand. 
+
+The landing page of the website gives users an option to sign up, login or continue using the website as a guest. 
+In the main page a user is given an ingredients checklist where they can select the ingredients they have in their kitchen by category (hard coded using the most common ingredients) or they can search their ingredient in the search bar (API call).
+By checking off the ingredients they have it will be added to their "your ingredients" list. 
+Once they have checked off all the ingredients they have they can click "get recipes" which makes an API call to generate a list of recipes they can make with the ingredients on their list. 
+Each recipe can be clicked on and will direct to another page with the instructions on how to make that recipe (with another API call)
+There is also an option to sign up/login which gives users access to favorite certain ingredients of their choice. Typically this would be used for the ingredients they have all the time. 
+Their favorite ingredients will be stored into a database and they will have easy access to view them on the mainpage under the "Your Favorited Ingredients" button. 
+They can easily add their favorited ingredients to their checklist to generate recipes. 
+Upon logout and login localStorage is cleared so the "your ingredients" list will be cleared.
+

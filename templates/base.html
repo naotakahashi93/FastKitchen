@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c17a5562c0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" >
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <title>{% block title%} base.html {% endblock %}</title>
+    
+</head>
+
+<nav class="navbar">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img src="">
+          <span> <i class="fa-solid fa-utensils fa-2x"></i> <h4 style="display: inline; vertical-align: 6px;">Fast Kitchen</h4></span>
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        {% if not g.user %}
+          <li><a href="/signup">Sign up</a></li>
+          <li id="loginuser"><a href="/login">Log in</a></li>
+        {% else %}
+          <li>
+            <a href="/users/{{ g.user.id }}">
+              <div id="circle-logo">
+                <div id="logo" class ="{{g.user.prof_photo}} fa-2x" style="width: 50px; height: 50px;"> 
+                </div>
+                <div id="userid-hidden" hidden>
+                  {{ g.user.id }}
+                </div>
+              </div>
+            </a>
+          </li>
+          <li id="logoutuser"><a href="/logout">Log out</a></li>
+        {% endif %}
+      </ul>
+  </nav>
+
+    </ul>
+
+{% block body%} 
+
+<body>
+{% endblock %}
+
+{% block content%} 
+{% endblock %}
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="/static/spoon.js"></script>
+
+</body>
+</html>

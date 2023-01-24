@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title%} Register Account {% endblock %}
+{% block body%}
+<body onload=''>
+    {% endblock %}
+
+{% block content %}
+<div id="reg-contents-wrapper">
+  <h3 class="join-message">Register your account here.</h3>
+  <form method="POST" id="user_form">
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.widget.input_type != 'hidden' and field.label.text != 'Select a profile image!' %}
+      {% for error in field.errors %}
+        <span class="text-danger">{{ error }}</span>
+      {% endfor %}
+      
+      {{ field.label }}
+      </br>
+      {{ field }}
+      </br>
+    {% endfor %}
+
+  <p id="select-prof-img" style="margin-top: 4px;margin-bottom: 4px;"> Select a profile image!</p>
+  <div id="select-prof-img-options">  
+    {% for field in form.prof_photo %}
+    <div id="user-img-reg-selection-wrapper">
+      {{ field }}
+      <div id="user-img-reg-wrapper">
+        <div id="user-img-reg" class ="{{field.label.text}} fa-4x"> </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+    </br>
+  </br>
+    <button id="sign-me-up-btn" type="submit">Sign me up!</button>
+  </form>
+
+  {% endblock %}
+
+  <input type="radio" id="{{field.label.text}}" name="icon-selection" value="{{field.label.text}}">
+  <label for="{{field.label.text}}"> <div class ="{{field.label.text}}" style="width: 100px; height: 100px;"> </div> </label>
+</div>
