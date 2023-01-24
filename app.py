@@ -8,6 +8,9 @@ from models import User, db, connect_db, bcrypt , FaveIngredient
 
 import csv
 
+##WHEN RUNNING ON LOCAL HOST CHANGE LOCAL_BASE_URL VARIABLE TO "http://127.0.0.1:5000" and BASE_URL in spoon.js
+## also change app.config to app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///spoonacular')
+
 API_BASE_URL = "https://api.spoonacular.com/recipes"
 LOCAL_BASE_URL="https://fastkitchen.herokuapp.com/"
 
