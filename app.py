@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, flash, redirect, session, g
-import requests
+import requests, os
 from sqlalchemy.exc import IntegrityError
 from secrets_1 import API_SECRET_KEY
 from forms import  MainForm, UserSignUpForm, LoginForm, FaveIngForm
@@ -17,7 +17,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///spoonacular'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'shhh')
 
 
 with app.app_context():
