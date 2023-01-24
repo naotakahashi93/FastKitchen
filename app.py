@@ -16,7 +16,7 @@ key = "69f498b1c49c4a9eb755213760a3397e"
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    'DATABASE_URL', 'postgresql:///spoonacular').replace("://", "ql://", 1)
+    'DATABASE_URL', 'postgresql:///spoonacular')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'shhh')
@@ -215,7 +215,6 @@ def profilepage(userid):
 def home():
     if g.user:
         return redirect("/ingredients")
-
     return render_template("home.html")
 
 @app.route("/ingredients",  methods=["GET", "POST"])
