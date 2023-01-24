@@ -1,21 +1,13 @@
 Title: FastKitchen 
 Heroku URL: (https://fastkitchen.herokuapp.com/)
 
-## Table of Contents  
-[Intro](#intro)  
-[User Flow](#userflow)  
-[Technology](#technology)  
-
-
-<a name="intro"/>
-# Introduction
+Introduction
 
 FastKitchen is a website targeted for busy individuals and aims to make homemade cooking easy, straightforward and hassle free. 
 This app is ideal for anyone who has a busy daily life and struggles with recipe ideas using the ingredients they have on hand. 
 
 
-<a name="userflow"/>
-# User Flow
+User Flow
 
 The landing page of the website gives users an option to sign up, login or continue using the website as a guest. 
 In the main page a user is given an ingredients checklist where they can select the ingredients they have in their kitchen by category or they can search their ingredient in the search bar.
@@ -30,8 +22,7 @@ They can easily add their favorited ingredients to their checklist to generate r
 Upon logout and login the "your ingredients" list will be cleared.
 
 
-<a name="technology"/>
-# Technology
+Technology
 
 Front End: Javascript, jQuery, HTML, CSS
 Back End: Python, Flask, Jinja, SQL, SQLAlchemy, WTForms
