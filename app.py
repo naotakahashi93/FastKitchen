@@ -25,8 +25,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://irlbkgra:Jv5vq76bEaO3E_mbGc48lUXr7XH7Odco@bubble.db.elephantsql.com/irlbkgra'
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    'DATABASE_URL', 'postgresql:///spoonacular').replace("://", "ql://", 1)
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+#     'DATABASE_URL', 'postgresql:///spoonacular').replace("://", "ql://", 1)
 
 ##FOR LOCAL 
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///spoonacular')
