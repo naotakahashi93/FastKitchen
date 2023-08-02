@@ -1,5 +1,5 @@
-// const BASE_URL = "https://fastkitchen.herokuapp.com/";
-const BASE_URL = "http://127.0.0.1:5000";
+const BASE_URL = "https://fastkitchen.onrender.com";
+// const BASE_URL = "http://127.0.0.1:5000";
 
 
 let your_ingredients = new Set()
