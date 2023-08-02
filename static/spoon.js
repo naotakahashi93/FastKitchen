@@ -1,4 +1,6 @@
-const BASE_URL = "https://fastkitchen.herokuapp.com/";
+// const BASE_URL = "https://fastkitchen.herokuapp.com/";
+const BASE_URL = "http://127.0.0.1:5000";
+
 
 let your_ingredients = new Set()
 // $("#checkedoff-arr").attr("value",Array.from(your_ingredients))

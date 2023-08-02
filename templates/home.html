@@ -7,73 +7,71 @@
 
 {% if not session['current_user'] %}
 
-    <div id="home-left-div">
+<img id="home-img" src="/static/images/FastKitchenLadingImg.png"> 
+  
         <div id="heading-div">
-            <h1 id="home-heading"> Quick and easy recipes using ingredients you have in your kitchen! </h1>
+            <h1 id="home-heading">Your culinary compass, exploring tastes from your pantry!</h1>
+            <h3 id="slogan-text">Discover the joy of effortless cooking as FastKitchen transforms your pantry checklist into quick, tasty recipes. Our recipe generator crafts mouthwatering dishes tailored uniquely to your kitchen supplies. Say goodbye to mealtime dilemmas and hello to a world of delicious possibilities!</h3>
             <div id="home-action">
                 <div id="signup-login-action">
                     <form action="/signup">
-                        <button id="home-signup-btn"> Sign Up/ Register </button>
+                        <button id="home-signup-btn"><p> Sign Up</p> </button>
                     </form>
 
                     <form action="/login">
-                        <button id="home-login-btn"> Login </button>
+                        <button id="home-login-btn"><p>Login </p></button>
                     </form>
                 </div>
                 <div id="or-divider"> OR </div>
                 <div id="cont-as-guest">
                     <form action="/ingredients">
-                        <button id="ing-checklist-btn">Continue As Guest</button>
+                        <button id="ing-checklist-btn"><p>Continue As Guest</p> </button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-    <img id="home-img" src="/static/images/HomePagePhoto.png"> 
+
 
     <div id="home-how-it-works">
-        <div id="how-works-contents-wrapper">
-            <h3 id="how-it-works-title">How it works in 2 easy steps:
+
+            <h3 id="how-it-works-title">How it works:
             </h3>
             <div id="step1-wrapper">
-                <img src="/static/images/Step1.png" id="img-step1">
-            </div>
-            <div id="step1">
-                <p> Step 1: </br>
-                    Select the ingredients you have. 
-                </br>
-                    You can find it from the given categories or search. 
+                <img src="/static/images/step1_.png" id="img-step1">
+                <p id="step1">Step 1:</br>
+                    Begin by selecting the ingredients you have in your kitchen from our checklist. Choose from various categories or use our search function to find what you need.
                 </p>
-            </div>
+         
+        </div>
             <div id="step2-wrapper">
-                <p> Step 2: </br>
-                    Once you have selected all your ingredients, click on the "Get Recipes!" button. 
-    
-                </p> 
-                <div id="step2">
-                    <img src="/static/images/Step2.png" id="img-step2">
-                </div>
+                <img src="/static/images/step2_.png" id="img-step2">
+                <p id="step2">Step 2: </br>
+                    Once you've checked off your ingredients, click the "Get Recipes!" button. FastKitchen will work its magic and present you with a list of recipes using what you have on hand. 
+                </p>
             </div>
            
             <div id="step3-wrapper">
-                <img src="/static/images/Results.png" id="img-result">
-                <div id="step3">
-                    <p>  Start cooking!
+                <img src="/static/images/step3_.png" id="img-result">
+                    <p id="step3"> Get Cooking and Enjoy!</br>
+                        Our easy to follow instructions will have you enjoying tasty recipes!
                     </p>
-                </div>
             </div>
 
             <div id="step4-wrapper">
-                <p> Have ingredients that are a staple for your kitchen? </br>
-                    Sign up for an account to access "Your Favorites!" - 
-                    Favorite and save any ingredient you want to quickly add it to your ingredients list and get cooking faster. 
+                <img src="/static/images/step4_.png" id="img-step4">
+                <p id="step4"> Enhance Your Kitchen Efficiency!</br>
+                    Sign up and enjoy the benefits of "Your Favorites!"
+                    Save your most-used ingredients to your account for quick access. 
+                    Make cooking a breeze by having all your kichen essentials in one accessible location.
+                    Simplify your cooking process and get delicious results with just a few clicks!
                 </p> 
-                <div id="step4">
-                    <img src="/static/images/Faves.png" id="img-step4">
+                <div id="homeend-action">
+                <form action="/signup">
+                    <button id="homeend-signup-btn"><p> Sign Up</p> </button>
+                </form>
                 </div>
             </div>
             
-        </div>
     </div>
 
 {% endif %}

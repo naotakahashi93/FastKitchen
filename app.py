@@ -3,7 +3,6 @@ import requests, os
 from sqlalchemy.exc import IntegrityError
 # from secrets_1 import API_SECRET_KEY
 from forms import  MainForm, UserSignUpForm, LoginForm, FaveIngForm
-from bs4 import BeautifulSoup ## not using this
 from models import User, db, connect_db, bcrypt , FaveIngredient
 
 import csv
@@ -12,14 +11,26 @@ import csv
 ## also change app.config to app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///spoonacular')
 
 API_BASE_URL = "https://api.spoonacular.com/recipes"
-LOCAL_BASE_URL="https://fastkitchen.herokuapp.com/"
+LOCAL_BASE_URL="http://127.0.0.1:5000"
+
+# LOCAL_BASE_URL="https://fastkitchen.herokuapp.com/"
 
 # key = API_SECRET_KEY
 key = "69f498b1c49c4a9eb755213760a3397e"
 
 app = Flask(__name__)
+
+##FOR DEPLOY
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://irlbkgra:Jv5vq76bEaO3E_mbGc48lUXr7XH7Odco@bubble.db.elephantsql.com/irlbkgra'
+
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL', 'postgresql:///spoonacular').replace("://", "ql://", 1)
+
+##FOR LOCAL 
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///spoonacular')
+
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'shhh')
@@ -193,7 +204,6 @@ def removefave(ing_id):
     
   
     if user.id == session["current_user"]:
-        print("$$$$$$$$$$$$$$$$", remove_fave_ing)
         db.session.delete(remove_fave_ing)
         db.session.commit()
         return redirect('/')
@@ -254,13 +264,6 @@ def checkoff_ingredients(category):
             form.ingredients.choices.append(row[0])
     
     serialized_form= serialize(form)
-    # checked = request.form.getlist('ingredients')
-
-    # if request.method == "POST":
-    #     checkedoff_ing.append(checked)
-    # #     return jsonify(checkedoff_ing=checked)
-    # session["checked"]=request.form.getlist("checked")
-    # print("000000000000000000000000", request.form.getlist('ingredients'))
     return jsonify(ingredients=form.ingredients.choices, form = serialized_form)
     
 
@@ -283,9 +286,6 @@ def show_page():
     if bool(result) == False:
         flash('Sorry, something weng wrong :( Please try again with different ingredients', 'danger')
         return redirect("/ingredients")
-    # elif result["status"] == 'failure':
-    #     flash('Sorry, something weng wrong :( Please try again tomorrow!', 'danger')
-    #     return redirect("/ingredients")
     print(result[0]["title"])
     return render_template("recipes.html", result=result)
 
@@ -303,160 +303,6 @@ def search_items(item):
                        params={'apiKey': key, 'query': item}) 
     result = res.json()
     return jsonify(result=result)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# @app.route("/itemdisplay")
-# def display_search_items():
-#     """route that is used to show the found ingredients that user searched """
-#     searchterm = request.args.get("searchterm")
-#     res = requests.get("https://api.spoonacular.com/food/ingredients/search",
-#                        params={'apiKey': key, 'query': searchterm}) 
-#     result = res.json()
-#     print(result)
-#     return redirect("/itemsearch")
-    
-
-# checklisthtml = requests.get(f"{LOCAL_BASE_URL}/ingredients")
-#     soup = BeautifulSoup(checklisthtml.content, 'html.parser')
-#     print(soup.prettify())
-#     return soup.prettify()
-    
-## routes for each category 
-# @app.route("/common", methods=["POST"])
-# def checkoff_ingredients():
-#     form = CommonForm()
-#     with open("generator/common.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices, form = form)
-    
-# @app.route("/cheese", methods=["POST"])
-# def checkoff_cheese():
-#     form = CheeseForm()
-#     with open("generator/cheese.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-
-# @app.route("/vegtables", methods=["POST"])
-# def checkoff_veg():
-#     form = VegtablesForm()
-#     with open("generator/vegtables.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/dairy", methods=["POST"])
-# def checkoff_dairy():
-#     form = DairyForm()
-#     with open("generator/dairy.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/flour", methods=["POST"])
-# def checkoff_flour():
-#     form = FlourForm()
-#     with open("generator/flour.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/freshherbs", methods=["POST"])
-# def checkoff_freshherbs():
-#     form = FreshHerbsForm()
-#     with open("generator/freshherbs.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/fruitsnuts", methods=["POST"])
-# def checkoff_fruits():
-#     form = FruitsNutsForm()
-#     with open("generator/fruitsnuts.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/herbs", methods=["POST"])
-# def checkoff_herbs():
-#     form = HerbsForm()
-#     with open("generator/herbs.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/meatfish", methods=["POST"])
-# def checkoff_meatfish():
-#     form = MeatFishForm()
-#     with open("generator/meatfish.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-
-  
-# @app.route("/oils", methods=["POST"])
-# def checkoff_oils():
-#     form = OilsForm()
-#     with open("generator/oils.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/sauces", methods=["POST"])
-# def checkoff_sauces():
-#     form = SaucesForm()
-#     with open("generator/sauces.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
-  
-# @app.route("/sweet", methods=["POST"])
-# def checkoff_sweet():
-#     form = SweetForm()
-#     with open("generator/sweet.csv") as file:
-#         contents = csv.reader(file, delimiter=';')
-#         for row in contents:
-#             form.ingredients.choices.append(row[0])
-#     for title in form:
-#         return jsonify(name=title.label.text, ingredients=form.ingredients.choices)
 
 
 
