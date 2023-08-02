@@ -14,7 +14,7 @@ API_BASE_URL = "https://api.spoonacular.com/recipes"
 # LOCAL_BASE_URL="http://127.0.0.1:5000"
 
 #FOR DEPLOY
-LOCAL_BASE_URL="https://fastkitchen.onrender.com"
+LOCAL_BASE_URL="https://fastkitchen.herokuapp.com"
 
 # key = API_SECRET_KEY
 key = "69f498b1c49c4a9eb755213760a3397e"
