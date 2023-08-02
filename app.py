@@ -108,7 +108,13 @@ def logout():
 def signup():
     """the route for signing up a user to the db """
     form = UserSignUpForm()
-    form.prof_photo.choices = ("fa-solid fa-carrot", "fa-solid fa-egg", "fa-solid fa-lemon", "fa-solid fa-fish", "fa-solid fa-bowl-food") ##FIX
+    form.prof_photo.choices = [
+    ("fa-solid fa-carrot", "Carrot"),
+    ("fa-solid fa-egg", "Egg"),
+    ("fa-solid fa-lemon", "Lemon"),
+    ("fa-solid fa-fish", "Fish"),
+    ("fa-solid fa-bowl-food", "Bowl")
+] 
     if "current_user" in session:
         user = User.query.filter_by(id=session["current_user"]).first()
         flash('You are alreayd logged in!', "primary")
